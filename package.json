@@ -1,0 +1,20 @@
+{
+  "name": "test-todolist",
+  "version": "1.0.0",
+  "description": "Test task for nodejs developer position",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "author": "Nikita Koroza",
+  "license": "ISC",
+  "dependencies": {
+    "assert": "^1.4.1",
+    "connect-mongodb-session": "^2.0.3",
+    "express": "^4.16.3",
+    "express-session": "^1.15.6",
+    "mongodb": "^3.0.10",
+    "pg-promise": "^8.4.4",
+    "pug": "^2.0.3"
+  }
+}
