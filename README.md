@@ -1,6 +1,6 @@
 # A simple to-do list app
 Written as a test task.
-App is written using MEAN solution-stack with pug as a view engine. Used middleware you can see in a package.json file.  
+App is written using Node.js, express.js, Mongo.db, pug solution-stack. Used middleware you can see in a package.json file.  
 App provides basic functionality:
 * authentification with password encryption,
 * user roles: admin and user,
