@@ -3,8 +3,8 @@ html
         title Login
     body
         form(action="/login", method="POST")
-            input(name="login", type="text", placeholder="Login")
-            input(name="pass", type="password", placeholder="Password")
+            input(name="username", type="text", placeholder="Login")
+            input(name="password", type="password", placeholder="Password")
             button(type="Submit") Submit
         if(message)
             p= message

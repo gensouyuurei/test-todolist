@@ -3,8 +3,11 @@ html
         title Register
     body
         form(action="/register", method="POST")
-            input(name="login", type="text", placeholder="Login")
-            input(name="pass", type="password", placeholder="Password")
+            input(name="username", type="text", placeholder="Login")
+            input(name="password", type="password", placeholder="Password")
+            if(createAdmin)
+                input(name='createAdmin', type='checkbox')
+                a Create admin
             button(type="Submit") Submit
         if(message)
             p= message

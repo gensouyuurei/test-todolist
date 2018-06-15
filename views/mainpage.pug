@@ -2,4 +2,41 @@ html
     head
         title Mainpage
     body
-        p Success
+        a(href='/main/add') Add task
+        br
+        form(method='post')
+            button(type='submit', value='true', name='sortPriority') Sort by priority
+            button(type='submit', value='true', name='sortStatus') Sort by status
+        br
+        if(!isAdmin)
+            if (user.records)
+                if (sortPriority)
+                    -user.records.sort(function(a,b){return (a.priority > b.priority) ? 1 : ((b.priority > a.priority) ? -1 : 0);});
+                if (sortStatus)
+                    -user.records.sort(function(a,b){return (a.isCompleted > b.isCompleted) ? 1 : ((b.isCompleted > a.isCompleted) ? -1 : 0);});
+                each val in user.records
+                    p= val.text
+                    -var status = ((val.isCompleted) ? 'completed' : 'not completed')
+                    p Status: #{status}
+                    p Priority: #{val.priority}
+                    if (!val.isCompleted)
+                        form(method='post')
+                           button(type='submit', name='completeTask', value=val._id) Completed
+                        hr
+        else
+            if (user)
+                if (sortPriority)
+                    -user.sort(function(a,b){return (a.priority > b.priority) ? 1 : ((b.priority > a.priority) ? -1 : 0);});
+                if (sortStatus)
+                    -user.sort(function(a,b){return (a.isCompleted > b.isCompleted) ? 1 : ((b.isCompleted > a.isCompleted) ? -1 : 0);});
+                each val in user
+                    p= val.text
+                    p By: #{val.username}
+                    -var status = ((val.isCompleted) ? 'completed' : 'not completed')
+                    p Status: #{status}
+                    p Priority: #{val.priority}
+                    if (!val.isCompleted)
+                        form(method='post')
+                            button(type='submit', name='completeTask', value=val._id) Completed
+                    hr
+
